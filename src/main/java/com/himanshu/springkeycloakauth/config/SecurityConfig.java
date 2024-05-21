@@ -40,7 +40,7 @@ public class SecurityConfig {
         .oauth2ResourceServer(oauth2 -> oauth2.jwt(withDefaults())
             .authenticationEntryPoint(customAuthenticationEntryPoint))
         .addFilterAfter(createPolicyEnforcerFilter(), BearerTokenAuthenticationFilter.class)
-        .addFilterAfter(customFilter, BearerTokenAuthenticationFilter.class)
+        //.addFilterAfter(customFilter, BearerTokenAuthenticationFilter.class)
         .build();
   }
 

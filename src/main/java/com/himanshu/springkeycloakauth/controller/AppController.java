@@ -1,5 +1,8 @@
 package com.himanshu.springkeycloakauth.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class AppController {
 
   @GetMapping("/hello")
-  public String hello() {
-    return "Hello normal user";
+  public ResponseEntity<String> hello() {
+    return  new ResponseEntity<>("hello normal", HttpStatus.OK);
   }
 
   @GetMapping("/hello-pr")
-  public String helloProtected() {
-    return "Hello premium user";
+  public ResponseEntity<String> helloProtected() {
+    return  new ResponseEntity<>("hello vip", HttpStatus.OK);
   }
 }
