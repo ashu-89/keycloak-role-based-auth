@@ -1,6 +1,5 @@
 package com.himanshu.springkeycloakauth.config;
 
-import com.himanshu.springkeycloakauth.security.CustomAuthenticationEntryPoint;
 //import com.himanshu.springkeycloakauth.security.CustomFilter;
 import org.keycloak.adapters.authorization.integration.jakarta.ServletPolicyEnforcerFilter;
 import org.keycloak.adapters.authorization.spi.ConfigurationResolver;
