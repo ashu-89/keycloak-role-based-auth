@@ -24,30 +24,29 @@ public class SecurityConfig {
 
 //  CustomFilter customFilter;
 
-  CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
+  //CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
 
 //  public SecurityConfig(CustomFilter customFilter, CustomAuthenticationEntryPoint customAuthenticationEntryPoint) {
 //    this.customFilter = customFilter;
 //    this.customAuthenticationEntryPoint = customAuthenticationEntryPoint;
 //  }
 
-  public SecurityConfig(CustomAuthenticationEntryPoint customAuthenticationEntryPoint) {
-    //this.customFilter = customFilter;
-    this.customAuthenticationEntryPoint = customAuthenticationEntryPoint;
-  }
+//  public SecurityConfig(CustomAuthenticationEntryPoint customAuthenticationEntryPoint) {
+//    //this.customFilter = customFilter;
+//    //this.customAuthenticationEntryPoint = customAuthenticationEntryPoint;
+//  }
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     return http
-        .authorizeHttpRequests(authorize -> authorize
-            .anyRequest().authenticated()
-        )
-        .oauth2ResourceServer(oauth2 -> oauth2.jwt(withDefaults())
-            .authenticationEntryPoint(customAuthenticationEntryPoint))
-        .addFilterAfter(createPolicyEnforcerFilter(), BearerTokenAuthenticationFilter.class)
-        //.addFilterAfter(customFilter, BearerTokenAuthenticationFilter.class)
-        .build();
+            .authorizeHttpRequests(authorize -> authorize
+                    .anyRequest().authenticated()
+            )
+            .oauth2ResourceServer(oauth2 -> oauth2.jwt(withDefaults()))
+            .addFilterAfter(createPolicyEnforcerFilter(), BearerTokenAuthenticationFilter.class)
+            .build();
   }
+
 
   private ServletPolicyEnforcerFilter createPolicyEnforcerFilter() {
     return new ServletPolicyEnforcerFilter(new ConfigurationResolver() {
