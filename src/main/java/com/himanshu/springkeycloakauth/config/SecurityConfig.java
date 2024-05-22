@@ -1,7 +1,7 @@
 package com.himanshu.springkeycloakauth.config;
 
 import com.himanshu.springkeycloakauth.security.CustomAuthenticationEntryPoint;
-import com.himanshu.springkeycloakauth.security.CustomFilter;
+//import com.himanshu.springkeycloakauth.security.CustomFilter;
 import org.keycloak.adapters.authorization.integration.jakarta.ServletPolicyEnforcerFilter;
 import org.keycloak.adapters.authorization.spi.ConfigurationResolver;
 import org.keycloak.adapters.authorization.spi.HttpRequest;
@@ -22,12 +22,17 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 public class SecurityConfig {
 
-  CustomFilter customFilter;
+//  CustomFilter customFilter;
 
   CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
 
-  public SecurityConfig(CustomFilter customFilter, CustomAuthenticationEntryPoint customAuthenticationEntryPoint) {
-    this.customFilter = customFilter;
+//  public SecurityConfig(CustomFilter customFilter, CustomAuthenticationEntryPoint customAuthenticationEntryPoint) {
+//    this.customFilter = customFilter;
+//    this.customAuthenticationEntryPoint = customAuthenticationEntryPoint;
+//  }
+
+  public SecurityConfig(CustomAuthenticationEntryPoint customAuthenticationEntryPoint) {
+    //this.customFilter = customFilter;
     this.customAuthenticationEntryPoint = customAuthenticationEntryPoint;
   }
 
